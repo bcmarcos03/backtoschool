@@ -5,6 +5,11 @@ jobs:
   pr_checks:
      runs-on: ubuntu-latest
      steps:
-       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+       - uses: actions/checkout@v4
+       - uses: actions/setup_node@v4
+       - run: |
+         npm install
+         npm run test
+         echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
   
   
